@@ -46,9 +46,9 @@ const config = {
     const tileset2 = map.addTilesetImage("interiors", "items");
     const tileset3 = map.addTilesetImage("bathroom", "bathroom");
 
-    const testLayer = map.createLayer("Tile Layer 3", [tileset3, tileset2], 0, 0);
     const wallLayer = map.createLayer("Tile Layer 1", tileset, 0, 0);
-    const itemLayer = map.createLayer("Tile Layer 2", [tileset3, tileset2], 0, 0);
+    const itemLayer = map.createLayer("Tile Layer 2", [tileset3, tileset2, tileset], 0, 0);
+    const testLayer = map.createLayer("Tile Layer 3", [tileset3, tileset2, tileset], 0, 0);
 
     this.anims.create({
       key: 'walk right',
@@ -106,6 +106,8 @@ const config = {
       repeat: -1
     });
     
+    this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
     bob = this.physics.add.sprite(100, 100, 'bob');
     bob.body.setSize(28, 16, true);
     bob.body.offset.y = 48;
