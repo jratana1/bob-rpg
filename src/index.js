@@ -10,6 +10,7 @@ const config = {
     physics: {
       default: "arcade",
       arcade: {
+        debug: true,
         gravity: { y: 0 }
       }
     },
@@ -106,6 +107,9 @@ const config = {
     });
     
     bob = this.physics.add.sprite(100, 100, 'bob');
+    bob.body.setSize(28, 16, true);
+    bob.body.offset.y = 48;
+    bob.body.collideWorldBounds = true;
     bob.play('idle down');
 
     const camera = this.cameras.main;
