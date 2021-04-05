@@ -1,0 +1,11 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "last.exportedFilePath": "/Users/jratana1/Flatiron/code/Phaser/tilepractice/src/assets/maps",
+    "last.imagePath": "/Users/jratana1/Flatiron/code/Phaser/tilepractice/src/assets/images",
+    "map.lastUsedExportFilter": "JSON map files (*.json)",
+    "tileset.embedInMap": true
+}
