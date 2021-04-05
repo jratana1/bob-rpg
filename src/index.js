@@ -119,7 +119,7 @@ const config = {
   
   function update(time, delta) {
     // Runs once per frame for the duration of the scene
-    const speed = 175;
+    const speed = 150;
   const prevVelocity = bob.body.velocity.clone();
 
   // Stop any previous movement from the last frame
