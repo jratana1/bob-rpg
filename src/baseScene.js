@@ -20,12 +20,18 @@ let bob;
     const map = this.make.tilemap({ key: "bedroom" });
 
     const tileset = map.addTilesetImage("walls", "walls");
+
     const tileset2 = map.addTilesetImage("interiors", "items");
     const tileset3 = map.addTilesetImage("bathroom", "bathroom");
+    
+    const collisionLayer = map.createLayer("collision", tileset, 0, 0);
 
     const wallLayer = map.createLayer("Tile Layer 1", tileset, 0, 0);
     const itemLayer = map.createLayer("Tile Layer 2", [tileset3, tileset2, tileset], 0, 0);
+    bob = this.physics.add.sprite(150, 150, 'bob');
+
     const testLayer = map.createLayer("Tile Layer 3", [tileset3, tileset2, tileset], 0, 0);
+
 
     this.anims.create({
       key: 'walk right',
@@ -85,11 +91,14 @@ let bob;
     
     this.physics.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
 
-    bob = this.physics.add.sprite(100, 100, 'bob');
+    // bob = this.physics.add.sprite(150, 150, 'bob');
     bob.body.setSize(28, 16, true);
     bob.body.offset.y = 48;
     bob.body.collideWorldBounds = true;
     bob.play('idle down');
+
+    collisionLayer.setCollision(13)
+    this.physics.add.collider(bob, collisionLayer);
 
     const camera = this.cameras.main;
     camera.startFollow(bob);

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="31" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="1">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="31" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
  <editorsettings>
   <export target="bedroom.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="walls" tilewidth="32" tileheight="32" tilecount="3599" columns="59">
-  <image source="../images/Room_Builder_32x32.png" width="1888" height="1952"/>
+  <image source="../../../../tilepractice/src/assets/images/Room_Builder_32x32.png" width="1888" height="1952"/>
  </tileset>
  <tileset firstgid="3600" name="interiors" tilewidth="32" tileheight="32" tilecount="896" columns="16">
-  <image source="../images/Interiors_free_32x32.png" width="512" height="1792"/>
+  <image source="../../../../tilepractice/src/assets/images/Interiors_free_32x32.png" width="512" height="1792"/>
  </tileset>
  <tileset firstgid="4496" name="bathroom" tilewidth="32" tileheight="32" tilecount="896" columns="16">
-  <image source="../images/3_Bathroom_32x32.png" width="512" height="1792"/>
+  <image source="../../../../tilepractice/src/assets/images/3_Bathroom_32x32.png" width="512" height="1792"/>
  </tileset>
  <tileset firstgid="5392" name="door" tilewidth="32" tileheight="32" tilecount="15" columns="5">
-  <image source="../images/animated_door_big_1_32x32.png" width="160" height="96"/>
+  <image source="../../../../tilepractice/src/assets/images/animated_door_big_1_32x32.png" width="160" height="96"/>
  </tileset>
  <layer id="1" name="Tile Layer 1" width="31" height="15">
   <data encoding="csv">
@@ -70,6 +70,25 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,190,190,2147483716,0,0,0,0,0,0,0,0,0,0,0,4185,4185,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,3704,3704,3704,3704,0,0,0,0,0,0,0,0,0,0,0,4185,4185,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="7" name="collision" width="31" height="15" visible="0" opacity="0">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,13,13,0,0,0,13,13,0,0,0,13,13,13,13,0,13,13,13,13,13,13,0,0,0,13,13,0,0,0,13,
+13,13,13,0,0,0,0,0,0,0,0,0,13,0,13,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,13,0,0,0,0,0,0,0,13,13,13,13,
+13,0,0,0,0,0,0,0,0,0,0,0,13,13,13,0,0,0,0,13,13,0,0,0,0,0,0,0,13,13,13,
+13,0,0,0,0,0,0,0,0,0,13,13,13,13,13,0,0,0,0,13,13,13,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,13,0,0,0,0,0,0,0,0,0,13,
+13,13,13,13,13,13,13,13,0,13,13,13,13,13,13,13,0,13,13,13,0,0,0,0,0,0,0,0,0,0,13,
+13,13,13,13,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,13,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,13,13,0,0,13,0,0,0,0,0,0,0,13,13,13,0,0,0,13,0,0,0,0,0,0,0,0,0,0,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13
 </data>
  </layer>
 </map>
