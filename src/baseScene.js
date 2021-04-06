@@ -27,6 +27,7 @@ let bob;
     const collisionLayer = map.createLayer("collision", tileset, 0, 0);
 
     const wallLayer = map.createLayer("Tile Layer 1", tileset, 0, 0);
+
     const itemLayer = map.createLayer("Tile Layer 2", [tileset3, tileset2, tileset], 0, 0);
     bob = this.physics.add.sprite(150, 150, 'bob');
 
