@@ -19,7 +19,6 @@ let molly
   
     create: function create() {
     // Runs once, after all assets in preload are loaded
-
     const map = this.make.tilemap({ key: "bedroom" });
 
     const tileset = map.addTilesetImage("walls", "walls");
@@ -166,7 +165,7 @@ let molly
     collisionLayer.setCollision(13)
 
     this.physics.add.collider(bob, collisionLayer);
-    // this.physics.add.collider(molly, collisionLayer);
+    this.physics.add.collider(molly, collisionLayer);
     this.physics.add.collider(molly, bob);
 
 
@@ -238,8 +237,6 @@ let molly
     // Runs once per frame for the duration of the scene
   const speed = 150;
   const prevVelocity = bob.body.velocity.clone();
-  const prevVelocityMolly = molly.body.velocity.clone();
-
 
   // Stop any previous movement from the last frame
   bob.body.setVelocity(0);
@@ -278,25 +275,15 @@ let molly
     else if (prevVelocity.y < 0) bob.anims.play("bob-idle-up", true);
     else if (prevVelocity.y > 0) bob.anims.play("bob-idle-down", true);
   }
-
-  // console.log(`x= ${prevVelocityMolly.x}, y= ${prevVelocityMolly.y}` + `[${molly.body.velocity.x}, ${molly.body.velocity.y}]`+ "im here")
-  // if (molly.body.velocity.x < 0 ) {
-  //   molly.anims.play("molly-walk-left", true);
-  // } else if (molly.body.velocity.x > 0) {
-  //   molly.anims.play("molly-walk-right", true);
-  // } else if (molly.body.velocity.y < 0) {
-  //   molly.anims.play("molly-walk-up", true);
-  // } else if (molly.body.velocity.y > 0) {
-  //   molly.anims.play("molly-walk-down", true);
-  // } 
-  //   else {
-  //   // If we were moving, pick and idle frame to use
-    
-  //   if (prevVelocityMolly.x < 0) molly.anims.play("molly-idle-left", true);
-  //   else if (prevVelocityMolly.x > 0) molly.play("molly-idle-right", true);
-  //   else if (prevVelocityMolly.y < 0) molly.anims.play("molly-idle-up", true);
-  //   else if (prevVelocityMolly.y > 0) molly.anims.play("molly-idle-down", true);
-  // }
   
+  if (Phaser.Input.Keyboard.JustDown(cursors.space)) {
+    let box = document.getElementsByClassName("overlay")[0]
+    if (box.style.visibility === "hidden") {
+      box.style.visibility = "visible";
+    } else {
+      box.style.visibility = "hidden";
+    }
+  }
+
   }
 }
