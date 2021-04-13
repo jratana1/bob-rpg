@@ -1,6 +1,9 @@
 let cursors;
 let bob;
 let molly
+var text = 'Hello my name is whatever and I want to tell you a nice beautiful story. I love you forever! <3';
+var textspeed = 50;
+var cancelled = false;
     
     export let baseScene = {
 
@@ -32,6 +35,7 @@ let molly
     
     molly = this.physics.add.sprite(550, 170, 'molly');
     bob = this.physics.add.sprite(150, 150, 'bob');
+    
 
 
     const testLayer = map.createLayer("Tile Layer 3", [tileset3, tileset2, tileset], 0, 0);
@@ -211,7 +215,7 @@ let molly
         molly.body.setVelocityX(0);
         molly.body.setVelocityY(0);
 
-      }, Math.floor(Math.random() * 3000)+1000);
+      }, Math.floor(Math.random() * 1000)+1000);
 
       if (molly.body.velocity.x < 0 ) {
         molly.anims.play("molly-walk-left", true);
@@ -278,12 +282,32 @@ let molly
   
   if (Phaser.Input.Keyboard.JustDown(cursors.space)) {
     let box = document.getElementsByClassName("overlay")[0]
+    let i = 0;
+
+    function typeWriter(txt) {
+      if (cancelled) {
+        box.innerHTML = "";
+        return
+      }
+
+      if (i < txt.length) {
+        box.innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, textspeed, txt);
+      }
+    }
+
     if (box.style.visibility === "hidden") {
       box.style.visibility = "visible";
+      cancelled = false
+      typeWriter(text)
     } else {
+      cancelled = true
       box.style.visibility = "hidden";
+      box.innerHTML = "";
     }
   }
 
   }
 }
+
