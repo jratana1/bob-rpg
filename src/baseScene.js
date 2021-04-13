@@ -4,6 +4,8 @@ let molly
 var text = 'Hello my name is whatever and I want to tell you a nice beautiful story. I love you forever! <3';
 var textspeed = 50;
 var cancelled = false;
+let box = document.getElementsByClassName("overlay")[0]
+
     
     export let baseScene = {
 
@@ -29,6 +31,8 @@ var cancelled = false;
     const tileset3 = map.addTilesetImage("bathroom", "bathroom");
     
     const collisionLayer = map.createLayer("collision", tileset, 0, 0);
+    const actionLayer = map.createLayer("action", tileset, 0, 0);
+
 
     const wallLayer = map.createLayer("Tile Layer 1", tileset, 0, 0);
     const itemLayer = map.createLayer("Tile Layer 2", [tileset3, tileset2, tileset], 0, 0);
@@ -38,7 +42,7 @@ var cancelled = false;
     
 
 
-    const testLayer = map.createLayer("Tile Layer 3", [tileset3, tileset2, tileset], 0, 0);
+    const topLayer = map.createLayer("Tile Layer 3", [tileset3, tileset2, tileset], 0, 0);
 
 
     this.anims.create({
@@ -274,40 +278,58 @@ var cancelled = false;
   } 
     else {
     // // If we were moving, pick and idle frame to use
-    if (prevVelocity.x < 0) bob.anims.play("bob-idle-left", true);
-    else if (prevVelocity.x > 0) bob.play("bob-idle-right", true);
-    else if (prevVelocity.y < 0) bob.anims.play("bob-idle-up", true);
-    else if (prevVelocity.y > 0) bob.anims.play("bob-idle-down", true);
+   
+    if (bob.anims.currentAnim.key === "bob-walk-left") bob.anims.play("bob-idle-left", true);
+    else if (bob.anims.currentAnim.key === "bob-walk-right") bob.play("bob-idle-right", true);
+    else if (bob.anims.currentAnim.key === "bob-walk-up") bob.anims.play("bob-idle-up", true);
+    else if (bob.anims.currentAnim.key === "bob-walk-down") bob.anims.play("bob-idle-down", true);
   }
   
   if (Phaser.Input.Keyboard.JustDown(cursors.space)) {
-    let box = document.getElementsByClassName("overlay")[0]
-    let i = 0;
-
-    function typeWriter(txt) {
-      if (cancelled) {
-        box.innerHTML = "";
-        return
-      }
-
-      if (i < txt.length) {
-        box.innerHTML += txt.charAt(i);
-        i++;
-        setTimeout(typeWriter, textspeed, txt);
-      }
-    }
-
-    if (box.style.visibility === "hidden") {
-      box.style.visibility = "visible";
-      cancelled = false
-      typeWriter(text)
-    } else {
+    // if overlap NPC, run talk function
+    if (box.style.visibility = "visible"){
       cancelled = true
-      box.style.visibility = "hidden";
+      box.style.visibility = "";
       box.innerHTML = "";
     }
-  }
+    
+    if (!bob.body.touching.none) {
+    talk()
+    }
 
+    // if near item, pickup
+    if (!bob.body.blocked.none){
+    pickup()
+    }
+
+
+  }
+  
   }
 }
 
+function talk() {
+let i = 0;
+
+function typeWriter(txt) {
+  if (cancelled) {
+    return
+  }
+
+  if (i < txt.length) {
+    box.innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, textspeed, txt);
+  }
+}
+
+if (box.style.visibility === "") {
+  box.style.visibility = "visible";
+  cancelled = false
+  typeWriter(text)
+}
+}
+
+function pickup() {
+ console.log("here")
+}
