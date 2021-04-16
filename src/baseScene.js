@@ -299,30 +299,6 @@ let collisionLayer
 
     // if near item, pickup
     if (!bob.body.blocked.none){
-      function pickup() {
-
-        if (bob.body.blocked.right  && actionLayer.getTileAtWorldXY(bob.body.x + 32, bob.body.y).index == 13) {
-          actionLayer.putTileAtWorldXY(1, bob.body.x + 32, bob.body.y )
-          collisionLayer.putTileAtWorldXY(1, bob.body.x+32, bob.body.y)
-          topLayer.putTileAtWorldXY(1, bob.body.x+32, bob.body.y)
-        }
-        else if (bob.body.blocked.left && actionLayer.getTileAtWorldXY(bob.body.x - 32, bob.body.y).index == 13){
-          actionLayer.putTileAtWorldXY(1, bob.body.x - 32, bob.body.y )
-          collisionLayer.putTileAtWorldXY(1, bob.body.x-32, bob.body.y)
-          topLayer.putTileAtWorldXY(1, bob.body.x-32, bob.body.y)
-        }
-        else if (bob.body.blocked.up && actionLayer.getTileAtWorldXY(bob.body.x, bob.body.y -32).index == 13){
-          actionLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y -32)
-          collisionLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y-32)
-          topLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y-32)
-        }
-        else if (bob.body.blocked.down && actionLayer.getTileAtWorldXY(bob.body.x, bob.body.y +32).index == 13){
-          actionLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y +32)
-          collisionLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y+32)
-          topLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y+32)
-        }
-       }
-
        pickup()
     }
   }
@@ -355,4 +331,25 @@ function talk() {
     }
 }
 
-
+function pickup() {
+  if (bob.body.blocked.right  && actionLayer.getTileAtWorldXY(bob.body.x + 32, bob.body.y).index == 13) {
+    actionLayer.putTileAtWorldXY(1, bob.body.x + 32, bob.body.y )
+    collisionLayer.putTileAtWorldXY(1, bob.body.x+32, bob.body.y)
+    topLayer.putTileAtWorldXY(1, bob.body.x+32, bob.body.y)
+  }
+  else if (bob.body.blocked.left && actionLayer.getTileAtWorldXY(bob.body.x - 32, bob.body.y).index == 13){
+    actionLayer.putTileAtWorldXY(1, bob.body.x - 32, bob.body.y )
+    collisionLayer.putTileAtWorldXY(1, bob.body.x-32, bob.body.y)
+    topLayer.putTileAtWorldXY(1, bob.body.x-32, bob.body.y)
+  }
+  else if (bob.body.blocked.up && actionLayer.getTileAtWorldXY(bob.body.x, bob.body.y -32).index == 13){
+    actionLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y -32)
+    collisionLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y-32)
+    topLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y-32)
+  }
+  else if (bob.body.blocked.down && actionLayer.getTileAtWorldXY(bob.body.x, bob.body.y +32).index == 13){
+    actionLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y +32)
+    collisionLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y+32)
+    topLayer.putTileAtWorldXY(1, bob.body.x, bob.body.y+32)
+  }
+ }
