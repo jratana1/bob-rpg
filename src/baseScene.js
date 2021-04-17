@@ -1,7 +1,7 @@
 let cursors;
 let bob;
 let molly
-var text = 'Hello my name is whatever and I want to tell you a nice beautiful story. I love you forever! <3';
+var text = 'Hello my name is whatever and I want to tell you a nice beautiful story.  I am 11% gay for you Summer.  I love you forever! <3';
 var textspeed = 50;
 var cancelled = false;
 let box = document.getElementsByClassName("overlay")[0]
@@ -287,8 +287,7 @@ let collisionLayer
   }
   
   if (Phaser.Input.Keyboard.JustDown(cursors.space)) {
-    // if overlap NPC, run talk function
-    
+    // if overlap NPC, run talk function   
     if (!bob.body.touching.none) {
     talk()
     } else {
@@ -312,7 +311,6 @@ function talk() {
       if (cancelled) {
         return
       }
-
       if (i < txt.length) {
         box.innerHTML += txt.charAt(i);
         i++;
